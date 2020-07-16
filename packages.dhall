@@ -123,6 +123,12 @@ let upstream =
 
 let overrides = {=}
 
-let additions = {=}
+let additions =
+      { monarch =
+            https://raw.githubusercontent.com/thebrodmann/purescript-monarch/distribution/spago.dhall sha256:277027c886b3d7425f4a1c5ff5440da62386e0b12788ee8ede90d6b0d696c6e0
+          ⫽ { repo = "https://github.com/thebrodmann/purescript-monarch"
+            , version = "distribution"
+            }
+      }
 
-in  upstream // overrides // additions
+in  upstream ⫽ overrides ⫽ additions
