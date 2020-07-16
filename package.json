@@ -1,0 +1,36 @@
+{
+  "name": "memento",
+  "version": "0.0.0",
+  "description": "A note taker which has been developed during live coding in Monarch live.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebrodmann/memento.git"
+  },
+  "keywords": [
+    "Note",
+    "Reminder",
+    "Live",
+    "UI",
+    "Monarch",
+    "PureScript",
+    "FP",
+    "FRP"
+  ],
+  "author": "Mohammad Hasani <thebrodmann@protonmail.com> (https://github.com/thebrodmann)",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/thebrodmann/memento/issues"
+  },
+  "homepage": "https://github.com/thebrodmann/memento#readme",
+  "devDependencies": {
+    "purescript": "^0.13.8",
+    "spago": "^0.15.3"
+  }
+}
