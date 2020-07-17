@@ -1,0 +1,95 @@
+@forward "sass:color";
+
+@use "sass:color";
+@use "sass:map";
+@use "Theme";
+
+/// Slightly lighten a colour
+///
+/// @group Colour
+/// @author Mohammad Hasani
+///
+/// @param {Colour} $colour - colour to tint
+/// @param {Number} $percentage - percentage of `$colour` in returned colour
+/// @return {Colour}
+///
+@function tint($colour, $percentage) {
+  @return color.mix(white, $colour, $percentage);
+}
+
+/// Slightly darken a colour
+///
+/// @group Colour
+/// @author Mohammad Hasani
+///
+/// @param {Colour} $colour - colour to shade
+/// @param {Number} $percentage - percentage of `$colour` in returned colour
+/// @return {Colour}
+///
+@function shade($colour, $percentage) {
+  @return color.mix(black, $colour, $percentage);
+}
+
+/// Colour palette map
+///
+/// @group Colour
+/// @author Mohammad Hasani
+///
+/// @prop {Colour} primary - Used for the heading, the link, the button background colour, etc.
+/// @prop {Colour} accent  - N/A
+/// @prop {Colour} black   - N/A
+/// @prop {Colour} gray-7  - N/A
+/// @prop {Colour} gray-6  - N/A
+/// @prop {Colour} gray-5  - N/A
+/// @prop {Colour} gray-4  - N/A
+/// @prop {Colour} gray-3  - N/A
+/// @prop {Colour} gray-2  - N/A
+/// @prop {Colour} gray-1  - Used for the sections background colour
+/// @prop {Colour} white   - N/A
+$_colours: (
+  light: (
+    dark: #040406,
+    white: #ffffff,
+    primary: #3737ff,
+    accent: #ff3030,
+  ),
+);
+
+:root {
+  @each $name, $value in map.get($_colours, light) {
+    --colour-#{$name}: #{$value};
+  }
+
+  &.-theme-dark {
+    @each $name, $value in map.get($_colours, dark) {
+      --colour-#{$name}: #{$value};
+    }
+  }
+}
+
+/// Colour palette helper function as a specific wrap arround map-get for $_colours map
+///
+/// @group Colour
+/// @author Mohammad Hasani
+///
+/// @parameter {String} $key - A key of $_colours map
+/// @return {Colour} Specified colour based on $_colours map
+@function get($key) {
+  @if map.has-key(map.get($_colours, light), $key) {
+    @return "var(--colour-#{$key})";
+  }
+
+  @error "Unknown key '#{$key}' in $_colours map.";
+}
+
+@function view($theme, $colour) {
+  @if map.has-key($_colours, $theme) {
+    $theme-colours: map.get($_colours, $theme);
+
+    @if map.has-key($theme-colours, $colour) {
+      @return map.get($theme-colours, $colour);
+    }
+  }
+
+  @error "Unknown key '#{$theme}.#{$color}' in $_colours map.";
+}
