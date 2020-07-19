@@ -31,6 +31,10 @@
   "homepage": "https://github.com/thebrodmann/memento#readme",
   "devDependencies": {
     "purescript": "^0.13.8",
-    "spago": "^0.15.3"
+    "spago": "^0.15.3",
+    "parcel": "^2.0.0-beta.1"
+  },
+  "dependencies": {
+    "snabbdom": "^0.7.0"
   }
 }
