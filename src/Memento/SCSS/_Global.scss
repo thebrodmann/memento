@@ -35,7 +35,7 @@
 body {
   margin: 0;
   height: 100%;
-  background: #{Colour.get(primary)};
+  background: #{Colour.get(background)};
 
   .-scroll-position-bottom & {
     background-color: #{Colour.get(background-bottom)};

@@ -52,6 +52,10 @@ $_colours: (
     white: #ffffff,
     primary: #3737ff,
     accent: #ff3030,
+    background: #ffffff,
+    background-top: #040406,
+    background-bottom: #fffff,
+    selection: #e2e2e4,
   ),
 );
 
@@ -76,7 +80,7 @@ $_colours: (
 /// @return {Colour} Specified colour based on $_colours map
 @function get($key) {
   @if map.has-key(map.get($_colours, light), $key) {
-    @return "var(--colour-#{$key})";
+    @return 'var(--colour-#{$key})';
   }
 
   @error "Unknown key '#{$key}' in $_colours map.";
